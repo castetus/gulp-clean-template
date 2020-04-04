@@ -29,7 +29,7 @@ function html(){
 function css(){
     return gulp.src('src/**/*.scss')
         .pipe(plumber())
-        .pipe(sass())
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('src/css'))
         .pipe(browserSync.reload({stream: true}))
 }
